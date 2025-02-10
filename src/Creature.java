@@ -60,11 +60,33 @@ public class Creature {
 
 
         static void fight(Creature creature1, Creature creature2) {
-            System.out.println("Creature 1: " + creature1.name);
-            System.out.println("Creature 2: " + creature2.name);
-            System.out.println("\n\n3\n2\n1");
+            System.out.println("Creature 1: " + creature1.name + "s Health: " + creature1.maxHealth);
+            System.out.println("Creature 2: " + creature2.name + "s Health: " + creature2.maxHealth);
+            System.out.println("\n3\n2\n1");
             System.out.println("***Fight***");
-            System.out.println("Ja hier müsste jetzt gekämpft werden...");
+            int health1 = creature1.maxHealth;
+            int health2 = creature2.maxHealth;
+
+            while (health1 > 0 && health2 > 0) {
+                int attack1 = Math.round((creature1.attack * creature1.speed * (1 - creature2.armor)));
+                health2 = health2-attack1;
+                int attack2 = Math.round((creature2.attack * creature2.speed * (1 - creature1.armor)));
+                health1 = health1-attack2;
+                System.out.println(creature1.name + "s Attack: " + attack1);
+                System.out.println(creature2.name + "s Attack: " + attack2);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+                System.out.println(creature1.name + "s Health: " + health1);
+                System.out.println(creature2.name + "s Health: " + health2);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+            }
     }
 
     CreatureStep2 Breed1(Creature creature, Creature creature2) {

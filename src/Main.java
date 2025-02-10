@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList<Creature> basecreatures = new ArrayList<Creature>();
+    static ArrayList<Creature> basecreatures = new ArrayList<>();
     static ArrayList<CreatureStep1> creatures1 = new ArrayList<CreatureStep1>();
     static ArrayList<CreatureStep2> creatures2 = new ArrayList<CreatureStep2>();
     static ArrayList<CreatureStep3> creatures3 = new ArrayList<CreatureStep3>();
@@ -99,7 +99,7 @@ public class Main {
                             else {
                                 creatures2.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).Breed1(creatures1.get(c1), creatures1.get(c2)));
                                 System.out.println("This Creature has been created:\n");
-                                creatures2.get(creatures2.size() - 1).ShowCreature();
+                                creatures2.getLast().ShowCreature();
                                 allcreatures.add(creatures2.get(creatures2.size() - 1));
                                 counter2++;
                             }
