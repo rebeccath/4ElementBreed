@@ -1,6 +1,5 @@
 //Breeding Game main
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +9,7 @@ public class Main {
     static ArrayList<CreatureStep2> creatures2 = new ArrayList<CreatureStep2>();
     static ArrayList<CreatureStep3> creatures3 = new ArrayList<CreatureStep3>();
     static ArrayList<CreatureStep4> creatures4 = new ArrayList<>();
+    static ArrayList<Creature> allcreatures = new ArrayList<>();
 //Achtung! Ich könnte auch alle Kreaturen in eine Array List vom Typ Creature packen, weil die untertypen vererbt sind.
     //Ich mache das hier nicht. weil ich dann alles umscheiben müsste.
 
@@ -44,6 +44,7 @@ public class Main {
                     //Basiskreatur wird in Stufe1 überführt. Hierbei: alle Werte mal 0.5 (Weil stufe1 schwächer ist als die höheren)
                     // und Bonus wird je nach Element addiert
                     creatures1.add(new CreatureStep1(basecreatures.get(i).name, basecreatures.get(i).maxHealth, basecreatures.get(i).armor, basecreatures.get(i).attack, basecreatures.get(i).speed, basecreatures.get(i).type));
+                    allcreatures.add(creatures1.get(i));
                     System.out.println("\nThis Creature has been created:\n");
                     creatures1.get(i).ShowCreature();
                     i++;
@@ -63,7 +64,12 @@ public class Main {
                     break;
 
                 case 3://Fight
-                    System.out.println("***Kampf: Sorry, Dieses Element ist noch under construction.***");
+                    Show.names(creatures1, creatures2, creatures3, creatures4);
+                    System.out.print("Welche Kreaturen sollen kämpfen?\nKreatur 1:\n>");
+                    int cr1 = navigator.nextInt();
+                    System.out.print("Kreatur 2:\n>");
+                    int cr2 = navigator.nextInt();
+                    Creature.fight(allcreatures.get(cr1), allcreatures.get(cr2));
                     break;
 
                 case 4://Breed
@@ -94,6 +100,7 @@ public class Main {
                                 creatures2.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).Breed1(creatures1.get(c1), creatures1.get(c2)));
                                 System.out.println("This Creature has been created:\n");
                                 creatures2.get(creatures2.size() - 1).ShowCreature();
+                                allcreatures.add(creatures2.get(creatures2.size() - 1));
                                 counter2++;
                             }
                             break;
@@ -112,6 +119,7 @@ public class Main {
                                 creatures3.add(new CreatureStep3(null, 0, 0, 0, 0, null, null).Breed2(creatures2.get(c1), creatures2.get(c2)));
                                 System.out.println("This Creature has been created:\n");
                                 creatures3.get(creatures3.size() - 1).ShowCreature();
+                                allcreatures.add(creatures3.get(creatures3.size() - 1));
                                 counter3++;
                             }
                             break;
@@ -130,6 +138,7 @@ public class Main {
                                 creatures4.add(new CreatureStep4(null, 0, 0, 0, 0, null, null).Breed3(creatures3.get(c1), creatures3.get(c2)));
                                 System.out.println("This Creature has been created:\n");
                                 creatures4.get(creatures4.size() - 1).ShowCreature();
+                                allcreatures.add(creatures4.get(creatures4.size() - 1));
                                 counter4++;
                             }
                             break;

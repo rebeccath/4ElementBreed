@@ -1,4 +1,3 @@
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -48,11 +47,9 @@ public class Creature {
     }
 
     static int compare(Creature c1, Creature c2) {
-        int i = 0;
-        int j = 0;
         int rel = 0;//Relation-> Verwandheitsgrad (je höher, desto verwandter)
-        for (j=0; j<c2.ancestors.size(); j++) {
-        for (i=0; i<c1.ancestors.size(); i++) {
+        for (int j=0; j<c2.ancestors.size(); j++) {
+        for (int i=0; i<c1.ancestors.size(); i++) {
             if (c1.ancestors.get(i) == c2.ancestors.get(j)) {
                 rel++;
             }
@@ -61,12 +58,21 @@ public class Creature {
         return rel;
     }
 
+
+        static void fight(Creature creature1, Creature creature2) {
+            System.out.println("Creature 1: " + creature1.name);
+            System.out.println("Creature 2: " + creature2.name);
+            System.out.println("\n\n3\n2\n1");
+            System.out.println("***Fight***");
+            System.out.println("Ja hier müsste jetzt gekämpft werden...");
+    }
+
     CreatureStep2 Breed1(Creature creature, Creature creature2) {
             maxHealth = (int) ((creature.maxHealth + creature2.maxHealth) / 2);
             armor = (creature.armor + creature2.armor) / 2;
             attack = (int) ((creature.attack + creature2.attack) / 2);
             speed = (creature.speed + creature2.speed) / 2;
-            ArrayList<String> choosetype = new ArrayList<String>();
+            ArrayList<String> choosetype = new ArrayList<>();
             choosetype.add(creature.type);
             choosetype.add(creature2.type);
             type = choosetype.get((int) (Math.random() * 2));
