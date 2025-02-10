@@ -52,7 +52,7 @@ public class Main {
                     break;
 
                 case 2://List your Creatures
-                    //Zuerst werden nur die Namen je Stufe aufgelistet und auf nachfrage Deteils zu allen Kreaturen
+                    //Zuerst werden nur die Namen je Stufe aufgelistet und auf Nachfrage Details zu allen Kreaturen
                     System.out.println("Your Creatures:");
                     Show.names(creatures1, creatures2, creatures3, creatures4);
 

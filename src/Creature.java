@@ -66,23 +66,26 @@ public class Creature {
             System.out.println("***Fight***");
             int health1 = creature1.maxHealth;
             int health2 = creature2.maxHealth;
+            int i = 0;
 
             while (health1 > 0 && health2 > 0) {
-                int attack1 = Math.round((creature1.attack * creature1.speed * (1 - creature2.armor)));
+                i++;
+                int attack1 = (int) ((creature1.attack * creature1.speed * (1 - creature2.armor))*(Math.random()*0.2+0.9));
                 health2 = health2-attack1;
-                int attack2 = Math.round((creature2.attack * creature2.speed * (1 - creature1.armor)));
+                int attack2 = (int) ((creature2.attack * creature2.speed * (1 - creature1.armor))*(Math.random()*0.2+0.9));
                 health1 = health1-attack2;
+                System.out.println(("Round " + i));
                 System.out.println(creature1.name + "s Attack: " + attack1);
                 System.out.println(creature2.name + "s Attack: " + attack2);
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(2000);
                 } catch (InterruptedException ie) {
                     Thread.currentThread().interrupt();
                 }
                 System.out.println(creature1.name + "s Health: " + health1);
-                System.out.println(creature2.name + "s Health: " + health2);
+                System.out.println(creature2.name + "s Health: " + health2 + "\n");
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(2000);
                 } catch (InterruptedException ie) {
                     Thread.currentThread().interrupt();
                 }
