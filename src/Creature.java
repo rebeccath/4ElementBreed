@@ -86,7 +86,7 @@ public class Creature {
                 System.out.println("    " + health1 + "/" + creature1.maxHealth + " HP   |    Angriff: " + attack1);
 
                 //Creature2
-                System.out.print(creature1.name + "      ");
+                System.out.print(creature2.name + "      ");
                 for(int k = 0; k < showHP2; k++){
                     System.out.print("*");
                 }
@@ -101,6 +101,12 @@ public class Creature {
                 }
                 health2 = health2-attack1;
                 health1 = health1-attack2;
+            }
+            if (health1>health2){
+                System.out.println(creature1.name + "  won!\n");
+            }
+            else{
+                System.out.println(creature2.name + "  won!\n");
             }
     }
 
