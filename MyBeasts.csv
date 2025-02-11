@@ -1,0 +1,5 @@
+Name, Stufe, HP, Armor, Angriff, Geschwindigkeit, typ, typ2, code, Geschlecht
+Stacey,1,386,0.2,38,1.0,Luft,/,gCzdwfAbn5,true
+Stacey,1,156,0.8,32,0.15,Erde,/,QvNXVsT69T,true
+Stacey,1,158,0.0,99,0.45,Feuer,/,Br01UO2KGu,true
+Stacey,1,631,0.05,49,0.85,Wasser,/,g6KOahqwCz,false
