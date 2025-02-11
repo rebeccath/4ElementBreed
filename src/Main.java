@@ -15,7 +15,6 @@ public class Main {
         int counter = 0; //counter all creatures
         int counterb = 0; //counts basecreatures
 
-
         //navigation
         Scanner navigator = new Scanner(System.in);
         int choice = 0;
@@ -29,6 +28,7 @@ public class Main {
         if (input.equals("y")) {
             allcreatures= SaveFile.read();
         }
+        counter = allcreatures.size();//to also cound the loaded creatures.
 
         while (true) {
             //Menu
@@ -88,6 +88,7 @@ public class Main {
                                 choice = Navigate.number("Welche Stufe sollen die Monster haben, die du kreuzen möchtest?\n>");
 
                                 //I would like to export the following into a method. Previously I had problems with passing the right variables along
+                                //I know it is a nightmare :D
                                 switch (choice) {
                                     case 1:
                                         System.out.println("Zwei Stufe 1 Kreaturen mit einander kreuzen");
