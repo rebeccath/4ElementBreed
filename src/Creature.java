@@ -58,7 +58,7 @@ public class Creature {
     }
 
 
-        static void fight(Creature creature1, Creature creature2) {
+    static void fight(Creature creature1, Creature creature2) {
             System.out.println("Creature 1: " + creature1.name + "s Health: " + creature1.maxHealth);
             System.out.println("Creature 2: " + creature2.name + "s Health: " + creature2.maxHealth);
             System.out.println("\n3\n2\n1");
@@ -104,6 +104,20 @@ public class Creature {
             }
     }
 
+    static boolean checkForBreeding(Creature creature1, Creature creature2, int breedingStep) {
+        boolean breed = true;
+        if (creature1.step != breedingStep || creature2.step != breedingStep) {
+            System.out.println("***Die gewählten Kreaturen haben die falsche Stufe!");
+            breed = false;
+        }
+        if(creature1.sex == creature2.sex){
+            System.out.println("***Du kannst keine Kreaturen des selben Geschlechtes mit einander kreuzen***");
+            breed = false;
+        }
+        return breed;
+
+    }
+
     CreatureStep2 breed1(Creature creature, Creature creature2) {
             maxHealth = (int) ((creature.maxHealth + creature2.maxHealth) / 2);
             armor = (creature.armor + creature2.armor) / 2;
@@ -115,9 +129,9 @@ public class Creature {
             type = choosetype.get((int) (Math.random() * 2));
             String ancestor1 = creature.code;
             String ancestor2 = creature2.code;
+            System.out.println("Folgende Kreatur wurde kreiert:\n");
             return new CreatureStep2("thing", maxHealth, armor, attack, speed, type, ancestor1, ancestor2);
     }
-    //Aktuell bekommen Sie einfach den Typ von Kreatur1
 
     CreatureStep3 breed2(Creature creature, Creature creature2) {
         this.maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
@@ -137,6 +151,7 @@ public class Creature {
         this.ancestors.addAll(creature2.ancestors);
         this.ancestors.add(creature.code);
         this.ancestors.add(creature2.code);
+        System.out.println("Folgende Kreatur wurde kreiert:\n");
         return new CreatureStep3("Monster", this.maxHealth, this.armor, this.attack, this.speed, this.type, this.type2, this.ancestors);
     }
 
@@ -157,6 +172,7 @@ public class Creature {
             maxHealth = (int) (maxHealth/1.6);
             attack = (int) (attack/1.6);
         }
+        System.out.println("Folgende Kreatur wurde kreiert:\n");
         return new CreatureStep4("Legend", maxHealth, armor, attack, speed, type, type2);
     }
 
