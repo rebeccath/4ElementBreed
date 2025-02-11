@@ -42,14 +42,14 @@ public class Main {
                 case 1://Create Creature
                     //creates basecreature with random values.
                     basecreatures.add(new Creature());
-                    basecreatures.get(counter1).Create();
+                    basecreatures.get(counter1).create();
                     //Basecreature is transferred to lvl1. This divides all values by 3 (Because creatures lvl1 are weaker than higher level creatures)
                     // this step also adds a bonus dependig on the element
                     creatures1.add(new CreatureStep1(basecreatures.get(counter1).name, basecreatures.get(counter1).maxHealth, basecreatures.get(counter1).armor, basecreatures.get(counter1).attack, basecreatures.get(counter1).speed, basecreatures.get(counter1).type));
                     allcreatures.add(creatures1.get(counter1)); //I soon want to do vereything over the allcreatures arraylist.
 
                     System.out.println("\nFolgende Kreatur wurde kreiert:\n");
-                    creatures1.get(counter1).ShowCreature();
+                    creatures1.get(counter1).showCreature();
                     counter1++;
                     break;
 
@@ -102,9 +102,9 @@ public class Main {
                                             System.out.println("***Du kannst keine Kreaturen des selben Geschlechtes mit einander kreuzen***");
                                         }
                                         else {
-                                            creatures2.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).Breed1(creatures1.get(c1), creatures1.get(c2)));
+                                            creatures2.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed1(creatures1.get(c1), creatures1.get(c2)));
                                             System.out.println("Folgende Kreatur wurde kreiert:\n");
-                                            creatures2.getLast().ShowCreature();
+                                            creatures2.getLast().showCreature();
                                             allcreatures.add(creatures2.get(creatures2.size() - 1));
                                             counter2++;
                                         }
@@ -121,9 +121,9 @@ public class Main {
                                                 System.out.println("***Du kannst keine Kreaturen des selben Geschlechtes mit einander kreuzen***");
                                             }
                                             else {
-                                                creatures3.add(new CreatureStep3(null, 0, 0, 0, 0, null, null).Breed2(creatures2.get(c1), creatures2.get(c2)));
+                                                creatures3.add(new CreatureStep3(null, 0, 0, 0, 0, null, null).breed2(creatures2.get(c1), creatures2.get(c2)));
                                                 System.out.println("Folgende Kreatur wurde kreiert:\n");
-                                                creatures3.get(creatures3.size() - 1).ShowCreature();
+                                                creatures3.get(creatures3.size() - 1).showCreature();
                                                 allcreatures.add(creatures3.get(creatures3.size() - 1));
                                                 counter3++;
                                             }
@@ -140,9 +140,9 @@ public class Main {
                                                     System.out.println("***Du kannst keine Kreaturen des selben Geschlechtes mit einander kreuzen***");
                                                 }
                                                 else {
-                                                    creatures4.add(new CreatureStep4(null, 0, 0, 0, 0, null, null).Breed3(creatures3.get(c1), creatures3.get(c2)));
+                                                    creatures4.add(new CreatureStep4(null, 0, 0, 0, 0, null, null).breed3(creatures3.get(c1), creatures3.get(c2)));
                                                     System.out.println("Folgende Kreatur wurde kreiert:\n");
-                                                    creatures4.get(creatures4.size() - 1).ShowCreature();
+                                                    creatures4.get(creatures4.size() - 1).showCreature();
                                                     allcreatures.add(creatures4.get(creatures4.size() - 1));
                                                     counter4++;
                                                 }

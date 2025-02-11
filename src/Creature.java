@@ -19,7 +19,7 @@ public class Creature {
     boolean sex = rand.nextBoolean(); //ture=female; false=male
 
 
-    void Create() {
+    void create() {
         type = types[(int) (Math.random()*4)];
         name = "Stacey";
         maxHealth = (int) (Math.random()*1000);
@@ -29,19 +29,19 @@ public class Creature {
     }
 
 
-    void ShowCreature() {
+    void showCreature() {
         System.out.println("Name: " + name);
-        System.out.println("Health: " + maxHealth);
-        System.out.println("Armor: " + armor);
-        System.out.println("Speed: " + speed);
-        System.out.println("Damage: " + attack);
-        System.out.println("Type: " + type);
-        System.out.println("Type2: " + type2);
+        System.out.println("Hitpoints: " + maxHealth);
+        System.out.println("Rüstung: " + armor);
+        System.out.println("Geschwindigkeit: " + speed);
+        System.out.println("Schaden: " + attack);
+        System.out.println("Typ: " + type);
+        System.out.println("Typ 2: " + type2);
         if (sex){
-            System.out.println("Sex: f");
+            System.out.println("Geschlecht: f");
         }
         else{
-            System.out.println("Sex: m");
+            System.out.println("Geschlecht: m");
         }
         System.out.println("Stufe: " + step + "\n");
     }
@@ -92,7 +92,7 @@ public class Creature {
             }
     }
 
-    CreatureStep2 Breed1(Creature creature, Creature creature2) {
+    CreatureStep2 breed1(Creature creature, Creature creature2) {
             maxHealth = (int) ((creature.maxHealth + creature2.maxHealth) / 2);
             armor = (creature.armor + creature2.armor) / 2;
             attack = (int) ((creature.attack + creature2.attack) / 2);
@@ -107,7 +107,7 @@ public class Creature {
     }
     //Aktuell bekommen Sie einfach den Typ von Kreatur1
 
-    CreatureStep3 Breed2(Creature creature, Creature creature2) {
+    CreatureStep3 breed2(Creature creature, Creature creature2) {
         maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
         armor = (creature.armor + creature2.armor)/2;
         attack = (int) ((creature.attack + creature2.attack)/2);
@@ -122,7 +122,7 @@ public class Creature {
         return new CreatureStep3("Monster", maxHealth, armor, attack, speed, type, type2);
     }
 
-    CreatureStep4 Breed3(Creature creature, Creature creature2) {
+    CreatureStep4 breed3(Creature creature, Creature creature2) {
         maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
         armor = (creature.armor + creature2.armor)/2;
         attack = (int) ((creature.attack + creature2.attack)/2);
