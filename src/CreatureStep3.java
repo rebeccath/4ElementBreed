@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CreatureStep3 extends Creature {
 
-    CreatureStep3(String name, int maxHealth, float armor, int attack, float speed, String type, String type2) {
+    CreatureStep3(String name, int maxHealth, float armor, int attack, float speed, String type, String type2, ArrayList<String> ancestors) {
         this.name = name;
         this.maxHealth = (int) (maxHealth*1.286);
         if (Objects.equals("Wasser", type)){
@@ -36,5 +37,6 @@ public class CreatureStep3 extends Creature {
         this.type2 = type2;
         code = Randomizer.randomString(10);
         step = 3;
+        this.ancestors = ancestors;
     }
 }

@@ -23,7 +23,7 @@ public class CreatureStep2 extends Creature {
         this.type = type;
         code = Randomizer.randomString(10);
         step = 2;
-        ancestors.add(ancestor1);
-        ancestors.add(ancestor2);
+        this.ancestors.add(ancestor1);
+        this.ancestors.add(ancestor2);
     }
 }

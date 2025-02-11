@@ -20,7 +20,8 @@ public class Main {
         int counter3 = 0;
         int counter4 = 0;
 
-        Scanner navigator = new Scanner(System.in); //navigation
+        //navigation
+        Scanner navigator = new Scanner(System.in);
         int choice = 0;
 
 
@@ -121,7 +122,7 @@ public class Main {
                                                 System.out.println("***Du kannst keine Kreaturen des selben Geschlechtes mit einander kreuzen***");
                                             }
                                             else {
-                                                creatures3.add(new CreatureStep3(null, 0, 0, 0, 0, null, null).breed2(creatures2.get(c1), creatures2.get(c2)));
+                                                creatures3.add(new CreatureStep3(null, 0, 0, 0, 0, null, null, null).breed2(creatures2.get(c1), creatures2.get(c2)));
                                                 System.out.println("Folgende Kreatur wurde kreiert:\n");
                                                 creatures3.get(creatures3.size() - 1).showCreature();
                                                 allcreatures.add(creatures3.get(creatures3.size() - 1));

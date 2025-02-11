@@ -108,18 +108,24 @@ public class Creature {
     //Aktuell bekommen Sie einfach den Typ von Kreatur1
 
     CreatureStep3 breed2(Creature creature, Creature creature2) {
-        maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
-        armor = (creature.armor + creature2.armor)/2;
-        attack = (int) ((creature.attack + creature2.attack)/2);
-        speed = (creature.speed + creature2.speed)/2;
-        type = creature.type;
-        type2 = creature2.type;
+        this.maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
+        this.armor = (creature.armor + creature2.armor)/2;
+        this.attack = (int) ((creature.attack + creature2.attack)/2);
+        this.speed = (creature.speed + creature2.speed)/2;
+        this.type = creature.type;
+        this.type2 = creature2.type;
         if (Creature.compare(creature, creature2) > 0) {
             System.out.println("***Achtung die Kreaturen sind Verwandt.***");
             maxHealth = (int) (maxHealth/2);
             attack = (int) (attack/2);
         }
-        return new CreatureStep3("Monster", maxHealth, armor, attack, speed, type, type2);
+        // Ich werde jetzt hier mit System out die ancestoers der eltern und kinder ausgeben lassen um zu debuggen und festzustellen, an welcher stelle der fehler liegt.
+        this.ancestors = new ArrayList<String>();
+        this.ancestors.addAll(creature.ancestors);
+        this.ancestors.addAll(creature2.ancestors);
+        this.ancestors.add(creature.code);
+        this.ancestors.add(creature2.code);
+        return new CreatureStep3("Monster", this.maxHealth, this.armor, this.attack, this.speed, this.type, this.type2, this.ancestors);
     }
 
     CreatureStep4 breed3(Creature creature, Creature creature2) {
