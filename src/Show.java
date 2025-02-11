@@ -1,26 +1,34 @@
 import java.util.ArrayList;
 
 public class Show {
-    static void all(ArrayList<CreatureStep1> creatures1, ArrayList<CreatureStep2> creatures2, ArrayList<CreatureStep3> creatures3, ArrayList<CreatureStep4> creatures4) {
+    static void all(ArrayList<Creature> creatures) {
         System.out.println("Kreaturen Stufe 1 (gewöhnlich):\n");
-        for (int i = 0; i < creatures1.size(); i++) {
-            System.out.print(i + ")");
-            creatures1.get(i).showCreature();
+        for (int i = 0; i < creatures.size(); i++) {
+            if (creatures.get(i).step == 1) {
+                System.out.print(i + ")");
+                creatures.get(i).showCreature();
+            }
         }
         System.out.println("Kreaturen Stufe 2 (spezial):\n");
-        for (int i = 0; i < creatures2.size(); i++) {
-            System.out.print(i + ")");
-            creatures2.get(i).showCreature();
+        for (int i = 0; i < creatures.size(); i++) {
+            if (creatures.get(i).step == 2) {
+                System.out.print(i + ")");
+                creatures.get(i).showCreature();
+            }
         }
         System.out.println("Kreaturen Stufe 3 (episch):\n");
-        for (int i = 0; i < creatures3.size(); i++) {
-            System.out.print(i + ")");
-            creatures3.get(i).showCreature();
+        for (int i = 0; i < creatures.size(); i++) {
+            if (creatures.get(i).step == 3) {
+                System.out.print(i + ")");
+                creatures.get(i).showCreature();
+            }
         }
         System.out.println("Kreaturen Stufe 4 (legendär):\n");
-        for (int i = 0; i < creatures4.size(); i++) {
-            System.out.print(i + ")");
-            creatures3.get(i).showCreature();
+        for (int i = 0; i < creatures.size(); i++) {
+            if (creatures.get(i).step == 4) {
+                System.out.print(i + ")");
+                creatures.get(i).showCreature();
+            }
         }
     }
 

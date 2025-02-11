@@ -135,6 +135,16 @@ public class Creature {
         speed = (creature.speed + creature2.speed)/2;
         type = creature.type;
         type2 = creature2.type;
+        if (Creature.compare(creature, creature2) == 1) {
+            System.out.println("***Achtung die Kreaturen sind entfernt Verwandt.***");
+            maxHealth = (int) (maxHealth/1.2);
+            attack = (int) (attack/1.2);
+        }
+        if (Creature.compare(creature, creature2) > 1) {
+            System.out.println("***Achtung die Kreaturen sind Verwandt.***");
+            maxHealth = (int) (maxHealth/1.6);
+            attack = (int) (attack/1.6);
+        }
         return new CreatureStep4("Legend", maxHealth, armor, attack, speed, type, type2);
     }
 
