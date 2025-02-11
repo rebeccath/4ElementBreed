@@ -1,11 +1,6 @@
 Name, Stufe, HP, Rüstung, Angriff, Geschwindigkeit, typ, typ2, code, Geschlecht
-Stacey,1,92,0.3,8,0.15,Erde,/,aIPDKQaMYt,true
-Stacey,1,385,0.2,58,0.4,Feuer,/,2D6A2Nhrro,true
-Stacey,1,995,0.2,32,1.0,Wasser,/,usU813poVv,true
-Stacey,1,656,0.25,8,0.6,Wasser,/,7DV2HfeQhq,true
-Stacey,1,466,0.25,31,0.5,Wasser,/,b8KgJQtGJ0,true
-Stacey,1,451,0.7,39,0.2,Erde,/,VwVi4U855P,true
-Stacey,1,244,0.3,14,2.5,Luft,/,4noPvTd7xZ,true
-Stacey,1,137,0.4,92,0.3,Feuer,/,2H9JJFk7Hl,false
-Stacey,1,367,0.3,61,0.15,Feuer,/,N70UiRBxWd,false
-Stacey,1,140,0.0,13,0.4,Wasser,/,MvGJRxMjge,false
+Stacey,1,1042,0.0,43,0.6,Wasser,/,3OlNhuE4Ik,true
+Stacey,1,53,0.3,3,1.2,Luft,/,S17o0mX36U,false
+thing,2,765,0.21000001,32,1.1,Luft,/,ORPP1yloGa,false
+Stacey,1,87,0.25,68,0.9,Feuer,/,Bl10oIl9Ci,true
+Stacey,1,159,0.4,58,0.6,Feuer,/,KzczeDjvZv,false

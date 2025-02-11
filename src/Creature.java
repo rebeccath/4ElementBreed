@@ -70,24 +70,37 @@ public class Creature {
             while (health1 > 0 && health2 > 0) {
                 i++;
                 int attack1 = (int) ((creature1.attack * creature1.speed * (1 - creature2.armor))*(Math.random()*0.2+0.9));
-                health2 = health2-attack1;
                 int attack2 = (int) ((creature2.attack * creature2.speed * (1 - creature1.armor))*(Math.random()*0.2+0.9));
+                System.out.println(("Round " + i + "\n"));
+                int showHP1 = (int) (((double)health1/creature1.maxHealth)*10);
+                int showHP2 = (int) (((double)health2/creature2.maxHealth)*10);
+
+                //Creature1
+                System.out.print(creature1.name + "      ");
+                for(int k = 0; k < showHP1; k++){
+                    System.out.print("*");
+                }
+                for(int k = 0; k < 10-showHP1; k++){
+                    System.out.print("-");
+                }
+                System.out.println("    " + health1 + "/" + creature1.maxHealth + " HP   |    Angriff: " + attack1);
+
+                //Creature2
+                System.out.print(creature1.name + "      ");
+                for(int k = 0; k < showHP2; k++){
+                    System.out.print("*");
+                }
+                for(int k = 0; k < 10-showHP2; k++){
+                    System.out.print("-");
+                }
+                System.out.println("    " + health2 + "/" + creature2.maxHealth + " HP   |    Angriff: " + attack2);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+                health2 = health2-attack1;
                 health1 = health1-attack2;
-                System.out.println(("Round " + i));
-                System.out.println(creature1.name + "s Attack: " + attack1);
-                System.out.println(creature2.name + "s Attack: " + attack2);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
-                }
-                System.out.println(creature1.name + "s Health: " + health1);
-                System.out.println(creature2.name + "s Health: " + health2 + "\n");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
-                }
             }
     }
 
