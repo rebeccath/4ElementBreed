@@ -1,4 +1,5 @@
 //Breeding Game main
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class Main {
 //Attention! II could put all creatures into one Array List of the type creature, because the other creatrues are child-classes.
     //I have done that now, I will have to change a lot of code before I can remove ArrayLists1,2,3,4
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         int counter = 0; //counter all creatures
         int counterb = 0; //counts basecreatures
@@ -22,6 +23,12 @@ public class Main {
 
         //programmstart
         System.out.println("\n\n--------------------------------------------------------------\n\nHello and welcome to 4ElementBreed!\n");
+
+        System.out.print("Vorherige Kreaturen einlesen?(y/n)\n>");
+        String input = navigator.next().toLowerCase();
+        if (input.equals("y")) {
+            allcreatures= SaveFile.read();
+        }
 
         while (true) {
             //Menu
@@ -55,7 +62,7 @@ public class Main {
                         Show.names(allcreatures);
 
                         System.out.println("Deteils anzeigen? (y/n)");
-                        String input = navigator.next().toLowerCase();
+                        input = navigator.next().toLowerCase();
                         if (input.equals("y")) {
                             Show.all(allcreatures);
                         }

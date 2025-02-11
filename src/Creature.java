@@ -10,7 +10,6 @@ public class Creature {
     int attack; //1-100
     float speed = (float) (Math.round(((Math.random()*1.8+0.2)*10)))/10; //0.2-2
     int step = 0; //1-4
-    int level; //1-20
     String type;
     String type2 = "/";
     String code; //Einzigartiger, zufälliger Code um Inzest zu vermeiden - Wie Name aber Einzigartig
