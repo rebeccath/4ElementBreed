@@ -27,7 +27,6 @@ public class Creature {
         speed = (float) (Math.round(((Math.random()*1.8+0.2)*10)))/10;
     }
 
-
     void showCreature() {
         System.out.println("Name: " + name);
         System.out.println("Hitpoints: " + maxHealth);
@@ -56,7 +55,6 @@ public class Creature {
         }
         return rel;
     }
-
 
     static void fight(Creature creature1, Creature creature2) {
             System.out.println("Creature 1: " + creature1.name + "s Health: " + creature1.maxHealth);

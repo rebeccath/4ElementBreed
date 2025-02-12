@@ -35,24 +35,29 @@ public class SaveFile {
         ArrayList<Creature> creatures = new ArrayList<>();
         String helpline;
         int i = 0;
-        BufferedReader reader = new BufferedReader(new FileReader("MyBeasts.csv"));
-        helpline = reader.readLine(); //this reads the first line and then trows it away (it contains the titles)
-        while((helpline = reader.readLine()) != null) {
-            creatures.add(new Creature());
-            creatures.get(i).name = helpline.split(",")[0];
-            creatures.get(i).step = Integer.parseInt(helpline.split(",")[1]);
-            creatures.get(i).maxHealth = Integer.parseInt(helpline.split(",")[2]);
-            creatures.get(i).armor = Float.parseFloat(helpline.split(",")[3]);
-            creatures.get(i).attack = Integer.parseInt(helpline.split(",")[4]);
-            creatures.get(i).speed = Float.parseFloat(helpline.split(",")[5]);
-            creatures.get(i).type = helpline.split(",")[6];
-            creatures.get(i).type2 = helpline.split(",")[7];
-            creatures.get(i).code = helpline.split(",")[8];
-            creatures.get(i).sex = Boolean.parseBoolean(helpline.split(",")[9]);
-            i++;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("MyBeasts.csv"));
+            helpline = reader.readLine(); //this reads the first line and then trows it away (it contains the titles)
+            while ((helpline = reader.readLine()) != null) {
+                creatures.add(new Creature());
+                creatures.get(i).name = helpline.split(",")[0];
+                creatures.get(i).step = Integer.parseInt(helpline.split(",")[1]);
+                creatures.get(i).maxHealth = Integer.parseInt(helpline.split(",")[2]);
+                creatures.get(i).armor = Float.parseFloat(helpline.split(",")[3]);
+                creatures.get(i).attack = Integer.parseInt(helpline.split(",")[4]);
+                creatures.get(i).speed = Float.parseFloat(helpline.split(",")[5]);
+                creatures.get(i).type = helpline.split(",")[6];
+                creatures.get(i).type2 = helpline.split(",")[7];
+                creatures.get(i).code = helpline.split(",")[8];
+                creatures.get(i).sex = Boolean.parseBoolean(helpline.split(",")[9]);
+                i++;
+            }
+            reader.close();
+            System.out.println("Alle Kreaturen eingelesen.\n\n");
         }
-        reader.close();
-        System.out.println("Alle Kreaturen eingelesen.\n\n");
+        catch (FileNotFoundException e) {
+            System.out.println("\n*** Fehler! Datei nicht gefunden.***\n");
+        }
         return creatures;
     }
 }

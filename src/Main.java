@@ -28,7 +28,7 @@ public class Main {
         if (input.equals("y")) {
             allcreatures = SaveFile.read();
         }
-        counter = allcreatures.size();//to also cound the loaded creatures.
+        counter = allcreatures.size();//to also count the loaded creatures.
 
         while (true) {
             //Menu
@@ -74,7 +74,13 @@ public class Main {
                     int cr1 = navigator.nextInt();
                     System.out.print("Kreatur 2:\n>");
                     int cr2 = navigator.nextInt();
-                    Creature.fight(allcreatures.get(cr1), allcreatures.get(cr2));
+                    if(cr1 < allcreatures.size()-1 || cr2 < allcreatures.size()-1) {
+                        Creature.fight(allcreatures.get(cr1), allcreatures.get(cr2));
+                    }
+                    else {
+                        System.out.println("Diese Kreaturen existieren nicht. Bitte wähle eine existierende Nummer aus.");
+                    }
+
                     break;
 
                 case 4://Breed
@@ -132,6 +138,8 @@ public class Main {
                                     counter++;
                                 }
                                 break;
+                                default:
+                                    System.out.println("Du kannst nur Kreaturen der Stufe 1-3 mit einander kreuzen.");
                             }
                             break;
 
@@ -140,6 +148,10 @@ public class Main {
                             Scanner text = new Scanner(System.in);
                             Show.all(allcreatures);
                             int creaturenum = Navigate.number("Welchen Namen möchtest du ändern?\nNummer der Kreatur\n>");
+                            if (creaturenum > allcreatures.size() - 1) {
+                                System.out.println("Diese Nummer existiert leider nicht. Bitte wähle eine andere.");
+                                break;
+                            }
                             System.out.print("Bitte gib einen neuen Namen ein\n>");
                             String name = text.nextLine();
                             allcreatures.get(creaturenum).name = name;
