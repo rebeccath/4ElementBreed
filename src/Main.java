@@ -163,6 +163,9 @@ public class Main {
                             SaveFile.write(counter, allcreatures);
                             System.out.println("Kreaturen wurden gespeichert. Bis zum nächsten Mal!\n\n");
                             System.exit(0);
+
+                        default:
+                            System.out.println("***Dies ist keine Option***");
                     }
             }
         }
