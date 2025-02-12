@@ -14,10 +14,10 @@ public class Navigate {
                 choice = navigator.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("***Bitte gib eine Zahl ein.***");
-                choice = 20;
+                choice = -1;
                 navigator.nextLine();
             }
-        } while (choice > 1000);
+        } while (choice < 0);
 
         return choice;
     }

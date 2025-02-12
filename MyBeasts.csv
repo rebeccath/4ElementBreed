@@ -2,3 +2,4 @@ Name, Stufe, HP, Rüstung, Angriff, Geschwindigkeit, typ, typ2, code, Geschlecht
 Stacey,1,897,0.35,30,0.85,Wasser,/,rPWRXQ3MW2,true
 Stacey,1,216,0.35,46,2.0,Luft,/,m5s8zA52Km,true
 Eckbert,1,871,0.25,5,0.7,Wasser,/,x3KPF9Uc9R,false
+Stacey,1,65,0.4,21,0.4,Erde,/,pXQSpMjttU,false
