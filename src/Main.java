@@ -38,7 +38,8 @@ public class Main {
             System.out.println("Kämpfen (3)");
             System.out.println("Kreaturen züchten (4)");
             System.out.println("Namen von Kreaturen ändern (5)");
-            System.out.println("Speichern und Beenden (6)");
+            System.out.println("Kreatur vernichten (6)");
+            System.out.println("Speichern und Beenden (7)");
             choice = Navigate.number(">");
 
             switch (choice) {
@@ -159,7 +160,21 @@ public class Main {
                             System.out.println("Der Name wurde erfolgreich zu " + name + " geändert.");
                             break;
 
-                        case 6:
+                            case 6:
+                                System.out.println("Welche Kreatur möchtest du gerne vernichten?");
+                                Show.names(allcreatures);
+                                int destroy = Navigate.number("Nummer\n>");
+                                try {
+                                    allcreatures.remove(destroy);
+                                }
+                                catch (Exception e) {
+                                    System.out.println("Diese Kreatur existiert nicht.");
+                                }
+                                counter--;
+                                break;
+
+
+                        case 7:
                             SaveFile.write(counter, allcreatures);
                             System.out.println("Kreaturen wurden gespeichert. Bis zum nächsten Mal!\n\n");
                             System.exit(0);

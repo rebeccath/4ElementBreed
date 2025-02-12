@@ -1,9 +1,5 @@
 Name, Stufe, HP, Rüstung, Angriff, Geschwindigkeit, typ, typ2, code, Geschlecht
-Stacey,1,897,0.35,30,0.85,Wasser,/,rPWRXQ3MW2,true
-Stacey,1,216,0.35,46,2.0,Luft,/,m5s8zA52Km,true
-Eckbert,1,871,0.25,5,0.7,Wasser,/,x3KPF9Uc9R,false
-Stacey,1,65,0.4,21,0.4,Erde,/,pXQSpMjttU,false
-Haraldine,1,302,0.2,28,2.3,Luft,/,is9S6tKubT,true
-thing,2,256,0.42000002,33,1.5500001,Luft,/,pmomsuAR6g,false
-thing,2,256,0.42000002,33,1.5500001,Luft,/,YRQ2J0y7yF,true
-Monster,3,164,0.54012,20,1.7500001,Luft,Luft,u6SZnyBC5G,true
+Stacey,1,255,0.4,45,0.2,Wasser,/,KpKxNO7Ykq,true
+Stacey,1,545,0.2,3,0.8,Wasser,/,S4uRRnP5Qy,false
+Stacey,1,711,0.1,40,0.95,Wasser,/,t9soDHCnn3,true
+Stacey,1,22,0.15,42,0.85,Feuer,/,zCItipHf1B,false
