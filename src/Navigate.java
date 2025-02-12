@@ -17,7 +17,7 @@ public class Navigate {
                 choice = 20;
                 navigator.nextLine();
             }
-        } while (choice > 10);
+        } while (choice > 1000);
 
         return choice;
     }
