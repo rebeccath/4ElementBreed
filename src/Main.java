@@ -14,12 +14,10 @@ public class Main {
 
     static ArrayList<Creature> basecreatures = new ArrayList<>();
     static ArrayList<Creature> allcreatures = new ArrayList<>();
-//Attention! II could put all creatures into one Array List of the type creature, because the other creatrues are child-classes.
-    //I have done that now, I will have to change a lot of code before I can remove ArrayLists1,2,3,4
 
     public static void main(String[] args) throws IOException {
 
-        int counter = 0; //counter all creatures
+        int counter = 0; //counter all creatures. Maybe useless? Only used for filewriter (mabbe just use allcreatures.getsize()
         int counterb = 0; //counts basecreatures
 
         //navigation
@@ -30,6 +28,7 @@ public class Main {
         //programmstart
         System.out.println("\n\n--------------------------------------------------------------\n\nHello and welcome to 4ElementBreed!\n");
 
+        //calls previously saved Creatures
         System.out.print("Vorherige Kreaturen einlesen?(y/n)\n>");
         String input = navigator.next().toLowerCase();
         if (input.equals("y")) {
@@ -119,7 +118,7 @@ public class Main {
                                         allcreatures.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed3(allcreatures.get(c1), allcreatures.get(c2)));
                                         break;
                                         default:
-                                            System.out.println("Du kannst nur Kreaturen der Stufe 1,2 oder 3 mit einandre Kreuzen.");
+                                            System.out.println("Du kannst nur Kreaturen der Stufe 1,2 oder 3 mit einander Kreuzen.");
                                 }
                                 allcreatures.getLast().showCreature();
                                 counter++;
