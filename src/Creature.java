@@ -2,22 +2,28 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Creature {
-    String[] types = {"Feuer", "Luft", "Wasser", "Erde"};
+    String[] types = {"Feuer", "Luft", "Wasser", "Erde"}; //Contains all possible Elements so they can later be assigned at random
     String name;
     int health; //1-1000
     int maxHealth; //1-1000
     float armor; //0-0.8
     int attack; //1-100
-    float speed = (float) (Math.round(((Math.random()*1.8+0.2)*10)))/10; //0.2-2
-    int step = 0; //1-4
-    String type;
-    String type2 = "/";
-    String code; //Einzigartiger, zufälliger Code um Inzest zu vermeiden - Wie Name aber Einzigartig
-    ArrayList<String> ancestors = new ArrayList<>();
-    Random rand = new Random();
-    boolean sex = rand.nextBoolean(); //ture=female; false=male
+    float speed; //0.2-2
+    int step = 0; //1-4; A sort of Breeding level. All Creatures start at step 1. when 2 cr. of the same step are bred the childs step will be one higher
+    String type; //Elemental Type
+    String type2 = "/"; //Type 2 is only availeble for creatures step 3 and 4
+    String code; //Unique, random Code is used to pass on to children to prevent beeding related creatures
+    ArrayList<String> ancestors = new ArrayList<>(); //Will contain parents and grandparents codes
+    boolean sex; //ture=female; false=male
+    Random rand = new Random(); //used to set sex in constructor
 
 
+    /**
+     * constructor creates a basic creature with random values within the set boundaries
+     * All Creatures are currently called Stacey. Random name generation can be implemented here.
+     *
+     *!!!random sex feels male heavy. Check that out.!!!
+     */
     void create() {
         type = types[(int) (Math.random()*4)];
         name = "Stacey";
@@ -25,8 +31,12 @@ public class Creature {
         armor = (float) (Math.round(((Math.random()*0.8)*10)))/10;
         attack = (int) (Math.random()*100);
         speed = (float) (Math.round(((Math.random()*1.8+0.2)*10)))/10;
+        sex = rand.nextBoolean();
     }
 
+    /**
+     * Prints out all user relevant features of a creature
+     */
     void showCreature() {
         System.out.println("Name: " + name);
         System.out.println("Hitpoints: " + maxHealth);
@@ -44,7 +54,15 @@ public class Creature {
         System.out.println("Stufe: " + step + "\n");
     }
 
-    static int compare(Creature c1, Creature c2) {
+    /**
+     * Compares 2 creatures ancestors by looping through the arrayLists.
+     * Is used when breeding Step 2 and Step 3 to prevent breeding related creatures.
+     *
+     * @param c1 one creature of any step whos ancestors you want to compare with anothers
+     * @param c2 the other cresture of any step
+     * @return returns integer. This reflects the amount of common ancestors found
+     */
+    static int compareAncestors(Creature c1, Creature c2) {
         int rel = 0;//Relation-> Verwandheitsgrad (je höher, desto verwandter)
         for (int j=0; j<c2.ancestors.size(); j++) {
         for (int i=0; i<c1.ancestors.size(); i++) {
@@ -56,6 +74,15 @@ public class Creature {
         return rel;
     }
 
+    /**
+     * Makes 2 Creatures fight one another.
+     * wether a creature wins or loses has no cinsequences for the game so far.
+     * Shows a nice grafic representation of the fight.
+     * Details about mechanics[...]
+     *
+     * @param creature1
+     * @param creature2
+     */
     static void fight(Creature creature1, Creature creature2) {
             System.out.println("Creature 1: " + creature1.name + "s Health: " + creature1.maxHealth);
             System.out.println("Creature 2: " + creature2.name + "s Health: " + creature2.maxHealth);
@@ -144,7 +171,7 @@ public class Creature {
         this.speed = (creature.speed + creature2.speed)/2;
         this.type = creature.type;
         this.type2 = creature2.type;
-        if (Creature.compare(creature, creature2) > 0) {
+        if (Creature.compareAncestors(creature, creature2) > 0) {
             System.out.println("***Achtung die Kreaturen sind Verwandt.***");
             maxHealth = (int) (maxHealth/2);
             attack = (int) (attack/2);
@@ -166,12 +193,12 @@ public class Creature {
         speed = (creature.speed + creature2.speed)/2;
         type = creature.type;
         type2 = creature2.type;
-        if (Creature.compare(creature, creature2) == 1) {
+        if (Creature.compareAncestors(creature, creature2) == 1) {
             System.out.println("***Achtung die Kreaturen sind entfernt Verwandt.***");
             maxHealth = (int) (maxHealth/1.2);
             attack = (int) (attack/1.2);
         }
-        if (Creature.compare(creature, creature2) > 1) {
+        if (Creature.compareAncestors(creature, creature2) > 1) {
             System.out.println("***Achtung die Kreaturen sind Verwandt.***");
             maxHealth = (int) (maxHealth/1.6);
             attack = (int) (attack/1.6);

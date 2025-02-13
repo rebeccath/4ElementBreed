@@ -164,6 +164,7 @@ public class Main {
                                 System.out.println("Welche Kreatur möchtest du gerne vernichten?");
                                 Show.names(allcreatures);
                                 int destroy = Navigate.number("Nummer\n>");
+                                //Are you sure einfügen!
                                 try {
                                     allcreatures.remove(destroy);
                                 }
