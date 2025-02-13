@@ -82,10 +82,9 @@ public class Main {
                     int cr1 = navigator.nextInt();
                     System.out.print("Kreatur 2:\n>");
                     int cr2 = navigator.nextInt();
-                    if(cr1 < allcreatures.size()-1 || cr2 < allcreatures.size()-1) {
+                    if (cr1 < allcreatures.size() - 1 || cr2 < allcreatures.size() - 1) {
                         Creature.fight(allcreatures.get(cr1), allcreatures.get(cr2));
-                    }
-                    else {
+                    } else {
                         System.out.println("Diese Kreaturen existieren nicht. Bitte wähle eine existierende Nummer aus.");
                     }
 
@@ -95,59 +94,35 @@ public class Main {
                     System.out.println("Alle Kreaturen anzeigen? (y/n)");
                     input = navigator.next().toLowerCase();
                     if (input.equals("y")) {
-                        Show.all(allcreatures);
+                        Show.names(allcreatures);
                     }
 
                     //only creatures of the same step can be bred.
                     choice = Navigate.number("Welche Stufe sollen die Monster haben, die du kreuzen möchtest?\n>");
 
-                    //I would like to export the following into a method. Previously I had problems with passing the right variables along
-                    //I know it is a nightmare :D
-                    switch (choice) {
-                        case 1:
-                            System.out.println("Zwei Stufe 1 Kreaturen mit einander kreuzen");
-                            int c1 = Navigate.number("Wähle Kreatur 1\n>");
-                            int c2 = Navigate.number("Wähle Kreatur 2\n>");
-                            if (c1 > allcreatures.size() - 1 || c2 > allcreatures.size() - 1) {
-                                System.out.println("***Du hast eine Nummer ausgewählt, die nicht existiert. Bitte versuche es erneut.***");
-                                break;
-                            }
-                            if (Creature.checkForBreeding(allcreatures.get(c1), allcreatures.get(c2), 1)) {
+                    System.out.println("Zwei Stufe " + choice + " Kreaturen mit einander kreuzen");
+                    int c1 = Navigate.number("Wähle Kreatur 1\n>");
+                    int c2 = Navigate.number("Wähle Kreatur 2\n>");
+                    if (c1 > allcreatures.size() - 1 || c2 > allcreatures.size() - 1) {
+                        System.out.println("***Du hast eine Nummer ausgewählt, die nicht existiert. Bitte versuche es erneut.***");
+                        break;
+                    }
+                    if (Creature.checkForBreeding(allcreatures.get(c1), allcreatures.get(c2), choice)) {
+                        switch (choice) {
+                            case 1:
                                 allcreatures.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed1(allcreatures.get(c1), allcreatures.get(c2)));
-                                allcreatures.getLast().showCreature();
-                                counter++;
-                            }
-                            break;
-                        case 2:
-                            System.out.println("Zwei Stufe 2 Kreaturen mit einander kreuzen");
-                            c1 = Navigate.number("Wähle Kreatur 1\n>");
-                            c2 = Navigate.number("Wähle Kreatur 2\n>");
-                            if (c1 > allcreatures.size() - 1 || c2 > allcreatures.size() - 1) {
-                                System.out.println("***Du hast eine Nummer ausgewählt, die nicht existiert. Bitte versuche es erneut.***");
                                 break;
-                            }
-                            if (Creature.checkForBreeding(allcreatures.get(c1), allcreatures.get(c2), 2)) {
-                                allcreatures.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed2(allcreatures.get(c1), allcreatures.get(c2)));
-                                allcreatures.getLast().showCreature();
-                                counter++;
-                            }
-                            break;
-                        case 3:
-                            System.out.println("Zwei Stufe 3 Kreaturen mit einander kreuzen");
-                            c1 = Navigate.number("Wähle Kreatur 1\n>");
-                            c2 = Navigate.number("Wähle Kreatur 2\n>");
-                            if (c1 > allcreatures.size() - 1 || c2 > allcreatures.size() - 1) {
-                                System.out.println("***Du hast eine Nummer ausgewählt, die nicht existiert. Bitte versuche es erneut.***");
-                                break;
-                            }
-                                if (Creature.checkForBreeding(allcreatures.get(c1), allcreatures.get(c2), 3)) {
-                                    allcreatures.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed3(allcreatures.get(c1), allcreatures.get(c2)));
-                                    allcreatures.getLast().showCreature();
-                                    counter++;
+                                case 2:
+                                    allcreatures.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed2(allcreatures.get(c1), allcreatures.get(c2)));
+                                    break;
+                                    case 3:
+                                        allcreatures.add(new CreatureStep2(null, 0, 0, 0, 0, null, null, null).breed3(allcreatures.get(c1), allcreatures.get(c2)));
+                                        break;
+                                        default:
+                                            System.out.println("Du kannst nur Kreaturen der Stufe 1,2 oder 3 mit einandre Kreuzen.");
                                 }
-                                break;
-                                default:
-                                    System.out.println("Du kannst nur Kreaturen der Stufe 1-3 mit einander kreuzen.");
+                                allcreatures.getLast().showCreature();
+                                counter++;
                             }
                             break;
 
@@ -167,19 +142,18 @@ public class Main {
                             System.out.println("Der Name wurde erfolgreich zu " + name + " geändert.");
                             break;
 
-                            case 6:
-                                System.out.println("Welche Kreatur möchtest du gerne vernichten?");
-                                Show.names(allcreatures);
-                                int destroy = Navigate.number("Nummer\n>");
-                                //Are you sure einfügen!
-                                try {
-                                    allcreatures.remove(destroy);
-                                }
-                                catch (Exception e) {
-                                    System.out.println("Diese Kreatur existiert nicht.");
-                                }
-                                counter--;
-                                break;
+                        case 6:
+                            System.out.println("Welche Kreatur möchtest du gerne vernichten?");
+                            Show.names(allcreatures);
+                            int destroy = Navigate.number("Nummer\n>");
+                            //Are you sure einfügen!
+                            try {
+                                allcreatures.remove(destroy);
+                            } catch (Exception e) {
+                                System.out.println("Diese Kreatur existiert nicht.");
+                            }
+                            counter--;
+                            break;
 
 
                         case 7:
@@ -193,5 +167,6 @@ public class Main {
             }
         }
     }
+
 
 

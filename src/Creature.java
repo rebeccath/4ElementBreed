@@ -14,8 +14,11 @@ public class Creature {
     String type2 = "/"; //Type 2 is only availeble for creatures step 3 and 4
     String code; //Unique, random Code is used to pass on to children to prevent beeding related creatures
     ArrayList<String> ancestors = new ArrayList<>(); //Will contain parents and grandparents codes
-    boolean sex; //ture=female; false=male
+
+    //I tried to set Sex in constructor but somehow only created male creatures. Sueley makes sense...
     Random rand = new Random(); //used to set sex in constructor
+    boolean sex = rand.nextBoolean(); //ture=female; false=male
+
 
 
     /**
@@ -31,7 +34,6 @@ public class Creature {
         armor = (float) (Math.round(((Math.random()*0.8)*10)))/10;
         attack = (int) (Math.random()*100);
         speed = (float) (Math.round(((Math.random()*1.8+0.2)*10)))/10;
-        sex = rand.nextBoolean();
     }
 
     /**

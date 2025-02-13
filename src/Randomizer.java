@@ -8,8 +8,8 @@ public class Randomizer {
      * Returns random String of upper case letters, lower case letters and numbers of variable length
      * Was created by chatGPT
      *
-     * @param laenge
-     * @return
+     * @param laenge specifies how long the random String is supposed to be.
+     * @return random String
      */
     public static String randomString(int laenge) {
         StringBuilder sb = new StringBuilder(laenge);

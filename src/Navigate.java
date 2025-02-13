@@ -6,6 +6,11 @@ public class Navigate {
     public static Scanner navigator = new Scanner(System.in);
 
 
+    /**
+     *
+     * @param nachricht
+     * @return
+     */
     static int number(String nachricht) {
         int choice;
         do {
@@ -22,6 +27,11 @@ public class Navigate {
         return choice;
     }
 
+    /**
+     * no usages so far
+     * @param nachricht
+     * @return
+     */
     static String string(String nachricht) {
         String input;
         System.out.print(nachricht);
