@@ -78,7 +78,12 @@ public class Creature {
      * Makes 2 Creatures fight one another.
      * wether a creature wins or loses has no cinsequences for the game so far.
      * Shows a nice grafic representation of the fight.
-     * Details about mechanics[...]
+     * Creates health variable for creature 1 and 2 to display current health
+     * fight continues until one creatures health falls below 0
+     * each round creature 1 and 2 attack are calculated as attackvalue * speed * 1-enemyArmor * random factor betewwn 0.9-1.1
+     * each round prints name, hitpoints, hitpointbar and attack
+     * HPbar is created with helpvariable showHP !!!export this step to method!!!
+     * After fight sequence message shows creature with higher hitpoints as winner
      *
      * @param creature1
      * @param creature2
@@ -135,6 +140,18 @@ public class Creature {
             }
     }
 
+    /**
+     * Compares 2 Creatures sex and step. Returns boolean true = can breed, false = can not breed
+     * breed is set to false when step of either creatures is not equal to breeding step.
+     * breed is set to false when sex of both creatures is the same
+     *Also returns Message, when creatures cannot be bred
+     *
+     * @param creature1
+     * @param creature2
+     * @param breedingStep step that is supposed to be bred. This has to be checkt because breeding is slightly different for every step.
+     *                     Also creatures have to be of the same Step to breed together.
+     * @return breed boolean that shows wether creatuers can be bred together. (true = can breed; false = can not breed)
+     */
     static boolean checkForBreeding(Creature creature1, Creature creature2, int breedingStep) {
         boolean breed = true;
         if (creature1.step != breedingStep || creature2.step != breedingStep) {
@@ -149,6 +166,21 @@ public class Creature {
 
     }
 
+    /**
+     * Breeds 2 creatures of step 1 and returns creature of step 2.
+     * Any Step creature can be entered so Main Programm has to make shure the right step is entered. (Uses checkForBreed method)
+     * it could also be specified in input but this might cause Error if wrong creature is entered. (maybe a good thing?)
+     * !!!check this!!!
+     *
+     * max health, armor, attack and speed are calculated as mean of parents values
+     * One type is selected randomly from parents types
+     * To track ancestors parents codes are passed down to CreatureStep2 (They will be added to an ArrayList)
+     * Prnints Message and returns relevant values to new CreatureStep2
+     *
+     * @param creature Parent 1
+     * @param creature2 Parent 2
+     * @return CreatureStep2
+     */
     CreatureStep2 breed1(Creature creature, Creature creature2) {
             maxHealth = (int) ((creature.maxHealth + creature2.maxHealth) / 2);
             armor = (creature.armor + creature2.armor) / 2;
@@ -164,6 +196,18 @@ public class Creature {
             return new CreatureStep2("thing", maxHealth, armor, attack, speed, type, ancestor1, ancestor2);
     }
 
+    /**
+     * Breeds 2 creatures of step 2 and returns creature of step 3
+     * like breed1
+     * Differences:
+     * Compares Parents ancestors. If any relations are revealed creatures health and attack are weakened by 1/2.
+     * Aslo informs user via message
+     * adds parents and grandparents codes do ArrayList, returns thsi ArrayList to Child
+     *
+     * @param creature
+     * @param creature2
+     * @return CreatureStep3
+     */
     CreatureStep3 breed2(Creature creature, Creature creature2) {
         this.maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
         this.armor = (creature.armor + creature2.armor)/2;
@@ -172,11 +216,10 @@ public class Creature {
         this.type = creature.type;
         this.type2 = creature2.type;
         if (Creature.compareAncestors(creature, creature2) > 0) {
-            System.out.println("***Achtung die Kreaturen sind Verwandt.***");
+            System.out.println("***Achtung die Kreaturen sind Verwandt. Ihr Nachkomme wird schwächer sein.***");
             maxHealth = (int) (maxHealth/2);
             attack = (int) (attack/2);
         }
-        // Ich werde jetzt hier mit System out die ancestoers der eltern und kinder ausgeben lassen um zu debuggen und festzustellen, an welcher stelle der fehler liegt.
         this.ancestors = new ArrayList<String>();
         this.ancestors.addAll(creature.ancestors);
         this.ancestors.addAll(creature2.ancestors);
@@ -186,6 +229,19 @@ public class Creature {
         return new CreatureStep3("Monster", this.maxHealth, this.armor, this.attack, this.speed, this.type, this.type2, this.ancestors);
     }
 
+    /**
+     * Breeds two Step3 Creatures and returns Step 4 Creature
+     * Like breed1 and breed 2
+     * Differences:
+     * -Does not pass on ancestors as these are irrelevant to Step 4 Creatures since they can not be bred.
+     *  This might become relevant when I want to be able to save and display the Family tree
+     * -Differenciates between degrees of relationship. Creatures with one common ancestor are reduced by 1.2 with 2 or more by 1.6
+     *
+     *
+     * @param creature
+     * @param creature2
+     * @return CreatureStep4
+     */
     CreatureStep4 breed3(Creature creature, Creature creature2) {
         maxHealth = (int) ((creature.maxHealth + creature2.maxHealth)/2);
         armor = (creature.armor + creature2.armor)/2;

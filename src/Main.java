@@ -1,4 +1,11 @@
-//Breeding Game main
+/**
+ * Description: This is the Main class of the Game Element4Breed. In This textbased Game you can create elemental creatures,
+ * breed them and make them fight.
+ * Author: Rebecca Theurer
+ * Version: 1.0
+ * Date: 13.02.2025
+ */
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
