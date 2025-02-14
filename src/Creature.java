@@ -89,6 +89,7 @@ public class Creature {
      *
      * @param creature1
      * @param creature2
+     * @return returns an integer. Either 1 or 2 depending on which creature won.
      */
     static int fight(Creature creature1, Creature creature2) {
             int winner;

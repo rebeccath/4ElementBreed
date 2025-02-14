@@ -28,7 +28,7 @@ public class Navigate {
     }
 
     /**
-     * no usages so far
+     * no uses so far
      * @param nachricht
      * @return
      */
