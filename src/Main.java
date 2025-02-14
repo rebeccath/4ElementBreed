@@ -19,10 +19,10 @@ public class Main {
 
         int counter = 0; //counter all creatures. Maybe useless? Only used for filewriter (mabbe just use allcreatures.getsize()
         int counterb = 0; //counts basecreatures
-        boolean medal1 = false;
-        boolean medal2 = false;
-        boolean medal3 = false;
-        boolean medal4 = false;
+        boolean medal1 = true;
+        boolean medal2 = true;
+        boolean medal3 = true;
+        boolean medal4 = true;
 
         //navigation
         Scanner navigator = new Scanner(System.in);

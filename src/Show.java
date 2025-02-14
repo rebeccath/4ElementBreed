@@ -94,7 +94,7 @@ public class Show {
     }
 
     /**
-     * Shows medels if won. careful, this art is simply taken from ASCII Art archive. not sure wether I can use it. !!!I have to replace it soon!!!
+     * Shows medals if won.
      *
      *Medals can be won in Boss fight
      *
@@ -105,74 +105,28 @@ public class Show {
      */
     static void medals(boolean m1, boolean m2, boolean m3, boolean m4) {
         if (m1) {
-            System.out.println("  _______\n" +
-                    " |       |\n" +
-                    "(| BOSS1 |)\n" +
-                    " |       |\n" +
-                    "  \\     /\n" +
-                    "   `---'\n" +
-                    "   _|_|_");
+            System.out.println("\\     /\n" +
+                    " \\   /\n" +
+                    " < 0 >\n");
+
         }
         if (m2) {
-            System.out.println("     _______________\n" +
-                    "    |@@@@|     |####|\n" +
-                    "    |@@@@|     |####|\n" +
-                    "    |@@@@|     |####|\n" +
-                    "    \\@@@@|     |####/\n" +
-                    "     \\@@@|     |###/\n" +
-                    "      `@@|_____|##'\n" +
-                    "           (O)\n" +
-                    "        .-'''''-.\n" +
-                    "      .'  * * *  `.\n" +
-                    "     :  *       *  :\n" +
-                    "    : ~ B O S S   ~ :\n" +
-                    "    : ~ N O 2     ~ :\n" +
-                    "     :  *       *  :\n" +
-                    "      `.  * * *  .'\n" +
-                    "        `-.....-'");
+            System.out.println(" \\\\   //\n" +
+                    "  \\\\ //\n" +
+                    " << 0 >>\n");
         }
         if (m3) {
-            System.out.println("  _______________\n" +
-                    "    |@@@@|     |####|\n" +
-                    "    |@@@@|     |####|\n" +
-                    "    |@@@@|     |####|\n" +
-                    "    \\@@@@|     |####/\n" +
-                    "     \\@@@|     |###/\n" +
-                    "      `@@|_____|##'\n" +
-                    "           (O)\n" +
-                    "        .-'''''-.\n" +
-                    "      .'  * * *  `.\n" +
-                    "     :  *       *  :\n" +
-                    "    : ~ B O S S   ~ :\n" +
-                    "    : ~ N O 3     ~ :\n" +
-                    "     :  *       *  :\n" +
-                    "jgs   `.  * * *  .'\n" +
-                    "        `-.....-'");
+            System.out.println(" \\\\   //\n" +
+                    "  \\\\  //\n" +
+                    "    ##\n" +
+                    "  <{@}>\n");
         }
         if (m4) {
-            System.out.println("                                  ___________\n" +
-                    "                             .---'::'        `---.\n" +
-                    "                            (::::::'              )\n" +
-                    "                            |`-----._______.-----'|\n" +
-                    "                            |              :::::::|\n" +
-                    "                           .|               ::::::!-.\n" +
-                    "                           \\|               :::::/|/\n" +
-                    "                            |               ::::::|\n" +
-                    "                            | Final Boss         :|\n" +
-                    "                            |                 ::::|\n" +
-                    "                            |               ::::::|\n" +
-                    "                            |              .::::::|\n" +
-                    "                            J              :::::::F\n" +
-                    "                             \\            :::::::/\n" +
-                    "                              `.        .:::::::'\n" +
-                    "                                `-._  .::::::-'\n" +
-                    "____________________________________|  \"\"\"|\"_________________________________________\n" +
-                    "                                    |  :::|\n" +
-                    "                                    F   ::J\n" +
-                    "                                   /     ::\\                                        \n" +
-                    "                              __.-'      :::`-.__\n" +
-                    "                             (_           ::::::_)\n" +
-                    "                               `\"\"\"---------\"\"\"'");
+            System.out.println("\\\\       //\n" +
+                    "\\\\\\     ///\n" +
+                    " \\\\\\   ///\n" +
+                    "    ###\n" +
+                    "   <{@}>\n");
         }
         if (m1 != true && m2 != true && m3 != true && m4 != true) {
             System.out.println("Du hast leider noch keine Medallien. Du kannst sie im Bosskampf gewinnen.");
