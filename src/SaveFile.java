@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SaveFile {
 
@@ -29,8 +28,6 @@ public class SaveFile {
     }
 
 
-    //This is the read function of another Programm of mine. I plan to fit it to this
-    //Programm to be able to read previous Monsters.
     static ArrayList<Creature> read() throws IOException {
         ArrayList<Creature> creatures = new ArrayList<>();
         String helpline;

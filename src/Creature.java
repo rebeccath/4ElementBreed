@@ -90,7 +90,8 @@ public class Creature {
      * @param creature1
      * @param creature2
      */
-    static void fight(Creature creature1, Creature creature2) {
+    static int fight(Creature creature1, Creature creature2) {
+            int winner;
             System.out.println("Creature 1: " + creature1.name + "s Health: " + creature1.maxHealth);
             System.out.println("Creature 2: " + creature2.name + "s Health: " + creature2.maxHealth);
             System.out.println("\n3\n2\n1");
@@ -136,10 +137,13 @@ public class Creature {
             }
             if (health1>health2){
                 System.out.println(creature1.name + "  won!\n");
+                winner = 1;
             }
             else{
                 System.out.println(creature2.name + "  won!\n");
+                winner = 2;
             }
+            return winner;
     }
 
     /**

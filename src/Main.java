@@ -19,6 +19,10 @@ public class Main {
 
         int counter = 0; //counter all creatures. Maybe useless? Only used for filewriter (mabbe just use allcreatures.getsize()
         int counterb = 0; //counts basecreatures
+        boolean medal1 = false;
+        boolean medal2 = false;
+        boolean medal3 = false;
+        boolean medal4 = false;
 
         //navigation
         Scanner navigator = new Scanner(System.in);
@@ -45,7 +49,8 @@ public class Main {
             System.out.println("Kreaturen züchten (4)");
             System.out.println("Namen von Kreaturen ändern (5)");
             System.out.println("Kreatur vernichten (6)");
-            System.out.println("Speichern und Beenden (7)");
+            System.out.println("Medallien ansehen (7)");
+            System.out.println("Speichern und Beenden (8)");
             choice = Navigate.number(">");
 
             switch (choice) {
@@ -76,15 +81,59 @@ public class Main {
                     break;
 
                 case 3://Fight
-                    Show.names(allcreatures);
-                    System.out.print("Welche Kreaturen sollen kämpfen?\nKreatur 1:\n>");
-                    int cr1 = navigator.nextInt();
-                    System.out.print("Kreatur 2:\n>");
-                    int cr2 = navigator.nextInt();
-                    if (cr1 < allcreatures.size() - 1 || cr2 < allcreatures.size() - 1) {
-                        Creature.fight(allcreatures.get(cr1), allcreatures.get(cr2));
-                    } else {
-                        System.out.println("Diese Kreaturen existieren nicht. Bitte wähle eine existierende Nummer aus.");
+                    int winner;
+                    System.out.println("Boss Kampf (1)\nKreatur vs. Kreatur(2)");
+                    choice = Navigate.number(">");
+                    switch (choice) {
+                        case 1:
+                            System.out.println("Welchen Boss möchtes du bekämpfen? gewöhnlich (1), spezial (2), episch (3), legendär (4)");
+                            int bossChoice = Navigate.number(">");
+                            System.out.println("Welche deiner Kreaturen soll gegn ihn antreten?");
+                            Show.names(allcreatures);
+                            int creatureChoice = Navigate.number(">");
+                            switch (bossChoice) {
+                                case 1:
+                                winner = Creature.fight(Constants.boss1, allcreatures.get(creatureChoice));
+                                if(winner == 1){
+                                    medal1 = true;
+                                }
+                                break;
+                                case 2:
+                                    winner = Creature.fight(Constants.boss2, allcreatures.get(creatureChoice));
+                                    if(winner == 1){
+                                        medal2 = true;
+                                    }
+                                    break;
+                                    case 3:
+                                        winner = Creature.fight(Constants.boss3, allcreatures.get(creatureChoice));
+                                        if(winner == 1){
+                                            medal3 = true;
+                                        }
+                                        break;
+                                        case 4:
+                                            winner = Creature.fight(Constants.boss4, allcreatures.get(creatureChoice));
+                                            if(winner == 1){
+                                                medal4 = true;
+                                            }
+                                            break;
+                                            default:
+                                                System.out.println("Du hast keinen Boss ausgewählt. Wähle 1,2,3 oder 4.");
+                                                break;
+
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Deine Kreaturen:");
+                            Show.names(allcreatures);
+                            System.out.print("Welche Kreaturen sollen kämpfen?\nKreatur 1:\n>");
+                            int cr1 = navigator.nextInt();
+                            System.out.print("Kreatur 2:\n>");
+                            int cr2 = navigator.nextInt();
+                            if (cr1 < allcreatures.size() - 1 || cr2 < allcreatures.size() - 1) {
+                                Creature.fight(allcreatures.get(cr1), allcreatures.get(cr2));
+                            } else {
+                                System.out.println("Diese Kreaturen existieren nicht. Bitte wähle eine existierende Nummer aus.");
+                            }
                     }
 
                     break;
@@ -154,8 +203,14 @@ public class Main {
                             counter--;
                             break;
 
+                case 7:
+                    System.out.println("Deine Medallien:");
+                    Show.medals(medal1, medal2, medal3, medal4);
+                    break;
 
-                        case 7:
+
+
+                        case 8:
                             SaveFile.write(counter, allcreatures);
                             System.out.println("Kreaturen wurden gespeichert. Bis zum nächsten Mal!\n\n");
                             System.exit(0);
