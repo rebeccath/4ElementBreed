@@ -28,7 +28,6 @@ public class Main {
         Scanner navigator = new Scanner(System.in);
         int choice = 0;
 
-
         //programmstart
         System.out.println("\n\n--------------------------------------------------------------\n\nHello and welcome to 4ElementBreed!\n");
 
