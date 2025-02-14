@@ -19,10 +19,10 @@ public class Main {
 
         int counter = 0; //counter all creatures. Maybe useless? Only used for filewriter (mabbe just use allcreatures.getsize()
         int counterb = 0; //counts basecreatures
-        boolean medal1 = true;
-        boolean medal2 = true;
-        boolean medal3 = true;
-        boolean medal4 = true;
+        boolean medal1 = false;
+        boolean medal2 = false;
+        boolean medal3 = false;
+        boolean medal4 = false;
 
         //navigation
         Scanner navigator = new Scanner(System.in);
@@ -184,7 +184,7 @@ public class Main {
                             }
                             System.out.print("Bitte gib einen neuen Namen ein\n>");
                             String name = text.nextLine();
-                            allcreatures.get(creaturenum).name = name;
+                            allcreatures.get(creaturenum).name = name; //I could create a setName method for this bur it would take more lines of code so I don't
 
                             System.out.println("Der Name wurde erfolgreich zu " + name + " geändert.");
                             break;
