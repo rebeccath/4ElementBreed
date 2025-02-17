@@ -30,10 +30,10 @@ public class Creature {
     void create() {
         type = types[(int) (Math.random()*4)];
         name = "Stacey";
-        maxHealth = (int) (Math.random()*1000);
-        armor = (float) (Math.round(((Math.random()*0.8)*10)))/10;
-        attack = (int) (Math.random()*100);
-        speed = (float) (Math.round(((Math.random()*1.8+0.2)*10)))/10;
+        maxHealth = (int) (Math.random()*Constants.MAXHP);
+        armor = (float) (Math.round(((Math.random()*Constants.MAXARMOR)*10)))/10;
+        attack = (int) (Math.random()*Constants.MAXDAMAGE);
+        speed = (float) (Math.round(((Math.random()*(Constants.MAXSPEED-0.2F)+0.2)*10)))/10;
     }
 
     /**
@@ -45,10 +45,19 @@ public class Creature {
         for(int i=0; i<Creature.checkHP(step, maxHealth); i++) {
             System.out.print("*");
         }
-        System.out.println("\nRüstung: " + armor);
-        System.out.println("Geschwindigkeit: " + speed);
-        System.out.println("Schaden: " + attack);
-        System.out.println("Typ: " + type);
+        System.out.print("\nRüstung: " + armor);
+        for(int i=0; i<Creature.checkArmor(step, armor); i++) {
+            System.out.print("*");
+        }
+        System.out.print("\nGeschwindigkeit: " + speed);
+        for(int i=0; i<Creature.checkSpeed(step, speed); i++) {
+            System.out.print("*");
+        }
+        System.out.print("\nSchaden: " + attack);
+        for(int i=0; i<Creature.checkAttack(step, attack); i++) {
+            System.out.print("*");
+        }
+        System.out.println("\nTyp: " + type);
         System.out.println("Typ 2: " + type2);
         if (sex){
             System.out.println("Geschlecht: f");
@@ -59,37 +68,155 @@ public class Creature {
         System.out.println("Stufe: " + step + "\n");
     }
 
+    /**
+     * The 4 follwing functions check wether the creatures values are higher
+     * than half the max value for that step or higher than the max vlaue (this is possible
+     * when the creature has the corresponding element.
+     * it returns a 1 for higher than half and a 2 for higher than max
+     *
+     * @param step
+     * @param maxHP
+     * @return
+     */
     static int checkHP(int step, int maxHP) {
         int star=0;
         if (step == 1) {
-            if (maxHP > 250) {
+            if (maxHP > (Constants.MAXHP*Constants.STEP1Factor)/2) {
                 star = 1;
             }
-            if (maxHP > 500) {
+            if (maxHP > Constants.MAXHP*Constants.STEP1Factor) {
                 star = 2;
             }
         }
         if (step == 2) {
-            if (maxHP > 350) {
+            if (maxHP > (Constants.MAXHP*Constants.STEP2Factor)/2) {
                 star = 1;
             }
-            if (maxHP > 700) {
+            if (maxHP > Constants.MAXHP*Constants.STEP2Factor) {
                 star = 2;
             }
         }
         if (step == 3) {
-            if (maxHP > 450) {
+            if (maxHP > (Constants.MAXHP*Constants.STEP3Factor)/2) {
                 star = 1;
             }
-            if (maxHP > 900) {
+            if (maxHP > Constants.MAXHP*Constants.STEP3Factor) {
                 star = 2;
             }
         }
         if (step == 4) {
-            if (maxHP > 500) {
+            if (maxHP > (Constants.MAXHP*Constants.STEP4Factor)/2) {
                 star = 1;
             }
-            if (maxHP > 1000) {
+            if (maxHP > Constants.MAXHP*Constants.STEP4Factor) {
+                star = 2;
+            }
+        }
+        return star;
+    }
+    static int checkArmor(int step, float armor) {
+        int star=0;
+        if (step == 1) {
+            if (armor > (Constants.MAXARMOR*Constants.STEP1Factor)/2) {
+                star = 1;
+            }
+            if (armor > Constants.MAXARMOR*Constants.STEP1Factor) {
+                star = 2;
+            }
+        }
+        if (step == 2) {
+            if (armor > (Constants.MAXARMOR*Constants.STEP2Factor)/2) {
+                star = 1;
+            }
+            if (armor > Constants.MAXARMOR*Constants.STEP2Factor) {
+                star = 2;
+            }
+        }
+        if (step == 3) {
+            if (armor > (Constants.MAXARMOR*Constants.STEP3Factor)/2) {
+                star = 1;
+            }
+            if (armor > Constants.MAXARMOR*Constants.STEP3Factor) {
+                star = 2;
+            }
+        }
+        if (step == 4) {
+            if (armor > (Constants.MAXARMOR*Constants.STEP4Factor)/2) {
+                star = 1;
+            }
+            if (armor > Constants.MAXARMOR*Constants.STEP4Factor) {
+                star = 2;
+            }
+        }
+        return star;
+    }
+    static int checkAttack(int step, int attack) {
+        int star=0;
+        if (step == 1) {
+            if (attack > (Constants.MAXDAMAGE*Constants.STEP1Factor)/2) {
+                star = 1;
+            }
+            if (attack > Constants.MAXDAMAGE*Constants.STEP1Factor) {
+                star = 2;
+            }
+        }
+        if (step == 2) {
+            if (attack > (Constants.MAXDAMAGE*Constants.STEP2Factor)/2) {
+                star = 1;
+            }
+            if (attack > Constants.MAXDAMAGE*Constants.STEP2Factor) {
+                star = 2;
+            }
+        }
+        if (step == 3) {
+            if (attack > (Constants.MAXDAMAGE*Constants.STEP3Factor)/2) {
+                star = 1;
+            }
+            if (attack > Constants.MAXDAMAGE*Constants.STEP3Factor) {
+                star = 2;
+            }
+        }
+        if (step == 4) {
+            if (attack > (Constants.MAXDAMAGE*Constants.STEP4Factor)/2) {
+                star = 1;
+            }
+            if (attack > Constants.MAXDAMAGE*Constants.STEP4Factor) {
+                star = 2;
+            }
+        }
+        return star;
+    }
+    static int checkSpeed(int step, float speed) {
+        int star=0;
+        if (step == 1) {
+            if (speed > (Constants.MAXSPEED*Constants.STEP1Factor)/2) {
+                star = 1;
+            }
+            if (speed > Constants.MAXSPEED*Constants.STEP1Factor) {
+                star = 2;
+            }
+        }
+        if (step == 2) {
+            if (speed > (Constants.MAXSPEED*Constants.STEP2Factor)/2) {
+                star = 1;
+            }
+            if (speed > Constants.MAXSPEED*Constants.STEP2Factor) {
+                star = 2;
+            }
+        }
+        if (step == 3) {
+            if (speed > (Constants.MAXSPEED*Constants.STEP3Factor)/2) {
+                star = 1;
+            }
+            if (speed > Constants.MAXSPEED*Constants.STEP3Factor) {
+                star = 2;
+            }
+        }
+        if (step == 4) {
+            if (speed > (Constants.MAXSPEED*Constants.STEP4Factor)/2) {
+                star = 1;
+            }
+            if (speed > Constants.MAXSPEED*Constants.STEP4Factor) {
                 star = 2;
             }
         }

@@ -1,14 +1,3 @@
 Name, Stufe, HP, Rüstung, Angriff, Geschwindigkeit, typ, typ2, code, Geschlecht
-RustyArmorHorst,1,93,0.9,24,0.85,Erde,/,rRh3qhlUM5,false
-FireDamageStacey,1,152,0.1,46,0.25,Feuer,/,SmlmeSyRgv,true
-SpeedyWeedyStacey,1,174,0.2,35,2.1,Luft,/,829vcILrzD,true
-HitPoint Hannah,1,507,0.4,32,0.9,Wasser,/,ADl84H1ALr,true
-FirstCreaton,2,420,0.75,39,1.225,Erde,/,GVh76hcdCA,true
-Stacey,1,366,0.05,14,0.5,Wasser,/,OogM86Back,false
-useless,1,225,0.2,26,0.9,Feuer,/,WbYm4zVixc,true
-Stacey,1,317,0.0,46,0.15,Feuer,/,x1SjrsyM3K,false
-Stacey,1,279,0.3,45,0.55,Erde,/,q1dXD6VuGw,true
-TankyStacey,1,391,0.8,41,0.95,Erde,/,UUacBm3CrK,true
-Stacey,1,324,0.4,26,0.8,Erde,/,vu6yfq7SQO,false
-thing,2,499,0.70000005,46,1.225,Erde,/,i1WUSOXboz,true
-thing,2,499,0.70000005,46,1.225,Erde,/,V8kdcx0Caw,false
+Stacey,1,227,0.1,22,0.9,Wasser,/,g4wDa5dvRd,false
+Bombe,1,559,0.4,42,0.5,Wasser,/,6kmtgt58Fn,true

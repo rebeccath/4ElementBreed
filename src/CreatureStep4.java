@@ -6,31 +6,31 @@ public class CreatureStep4 extends Creature {
         this.name = name;
         this.maxHealth = (int) (maxHealth*1.11);
         if (Objects.equals("Wasser", type)){
-            this.maxHealth = maxHealth + 100;
+            this.maxHealth += 100;
         }
         if (Objects.equals("Wasser", type2)){
-            this.maxHealth = maxHealth+50;
+            this.maxHealth += 50;
         }
         this.armor = (float) (armor*1.11);
         if (Objects.equals("Erde", type)){
-            this.armor = (float) (armor + 0.2);
+            this.armor += 0.2F;
         }
         if (Objects.equals("Erde", type2)){
-            this.armor = (float) (armor + 0.1);
+            this.armor += 0.1F;
         }
         this.attack = (int) (attack*1.11);
         if (Objects.equals("Feuer", type)){
-            this.attack = attack + 40;
+            this.attack += 40;
         }
         if (Objects.equals("Feuer", type2)){
-            this.attack = attack +20;
+            this.attack += 20;
         }
         this.speed = (float) (speed*1.11);
         if (Objects.equals("Luft", type)){
-            this.speed = (float) (speed + 0.6);
+            this.speed += 0.6F;
         }
         if (Objects.equals("Luft", type2)){
-            this.speed = (float) (speed + 0.3);
+            this.speed += 0.3F;
         }
         this.type = type;
         this.type2 = type2;
