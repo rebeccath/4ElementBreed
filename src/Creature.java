@@ -41,8 +41,11 @@ public class Creature {
      */
     void showCreature() {
         System.out.println("Name: " + name);
-        System.out.println("Hitpoints: " + maxHealth);
-        System.out.println("Rüstung: " + armor);
+        System.out.print("Hitpoints: " + maxHealth);
+        for(int i=0; i<Creature.checkHP(step, maxHealth); i++) {
+            System.out.print("*");
+        }
+        System.out.println("\nRüstung: " + armor);
         System.out.println("Geschwindigkeit: " + speed);
         System.out.println("Schaden: " + attack);
         System.out.println("Typ: " + type);
@@ -54,6 +57,43 @@ public class Creature {
             System.out.println("Geschlecht: m");
         }
         System.out.println("Stufe: " + step + "\n");
+    }
+
+    static int checkHP(int step, int maxHP) {
+        int star=0;
+        if (step == 1) {
+            if (maxHP > 250) {
+                star = 1;
+            }
+            if (maxHP > 500) {
+                star = 2;
+            }
+        }
+        if (step == 2) {
+            if (maxHP > 350) {
+                star = 1;
+            }
+            if (maxHP > 700) {
+                star = 2;
+            }
+        }
+        if (step == 3) {
+            if (maxHP > 450) {
+                star = 1;
+            }
+            if (maxHP > 900) {
+                star = 2;
+            }
+        }
+        if (step == 4) {
+            if (maxHP > 500) {
+                star = 1;
+            }
+            if (maxHP > 1000) {
+                star = 2;
+            }
+        }
+        return star;
     }
 
     /**
@@ -92,7 +132,6 @@ public class Creature {
      * @return returns an integer. Either 1 or 2 depending on which creature won.
      */
     static int fight(Creature creature1, Creature creature2) {
-            int winner;
             System.out.println("Creature 1: " + creature1.name + "s Health: " + creature1.maxHealth);
             System.out.println("Creature 2: " + creature2.name + "s Health: " + creature2.maxHealth);
             System.out.println("\n3\n2\n1");
@@ -138,13 +177,12 @@ public class Creature {
             }
             if (health1>health2){
                 System.out.println(creature1.name + "  won!\n");
-                winner = 1;
+                return 1;
             }
             else{
                 System.out.println(creature2.name + "  won!\n");
-                winner = 2;
+                return 2;
             }
-            return winner;
     }
 
     /**

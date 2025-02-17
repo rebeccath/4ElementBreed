@@ -84,7 +84,7 @@ public class Main {
                     System.out.println("Boss Kampf (1)\nKreatur vs. Kreatur(2)");
                     choice = Navigate.number(">");
                     switch (choice) {
-                        case 1:
+                        case 1://Bossfight
                             System.out.println("Welchen Boss möchtes du bekämpfen? gewöhnlich (1), spezial (2), episch (3), legendär (4)");
                             int bossChoice = Navigate.number(">");
                             System.out.println("Welche deiner Kreaturen soll gegn ihn antreten?");
@@ -93,25 +93,25 @@ public class Main {
                             switch (bossChoice) {
                                 case 1:
                                 winner = Creature.fight(Constants.boss1, allcreatures.get(creatureChoice));
-                                if(winner == 1){
+                                if(winner == 2){
                                     medal1 = true;
                                 }
                                 break;
                                 case 2:
                                     winner = Creature.fight(Constants.boss2, allcreatures.get(creatureChoice));
-                                    if(winner == 1){
+                                    if(winner == 2){
                                         medal2 = true;
                                     }
                                     break;
                                     case 3:
                                         winner = Creature.fight(Constants.boss3, allcreatures.get(creatureChoice));
-                                        if(winner == 1){
+                                        if(winner == 2){
                                             medal3 = true;
                                         }
                                         break;
                                         case 4:
                                             winner = Creature.fight(Constants.boss4, allcreatures.get(creatureChoice));
-                                            if(winner == 1){
+                                            if(winner == 2){
                                                 medal4 = true;
                                             }
                                             break;
@@ -121,7 +121,7 @@ public class Main {
 
                             }
                             break;
-                        case 2:
+                        case 2://Creature vs. Creature
                             System.out.println("Deine Kreaturen:");
                             Show.names(allcreatures);
                             System.out.print("Welche Kreaturen sollen kämpfen?\nKreatur 1:\n>");

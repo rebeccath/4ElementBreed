@@ -18,7 +18,7 @@ public class Navigate {
             try {
                 choice = navigator.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("***Bitte gib eine Zahl ein.***");
+                System.out.print("***Bitte gib eine Zahl ein.***");
                 choice = -1;
                 navigator.nextLine();
             }

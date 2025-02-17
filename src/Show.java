@@ -105,24 +105,24 @@ public class Show {
      */
     static void medals(boolean m1, boolean m2, boolean m3, boolean m4) {
         if (m1) {
-            System.out.println("\\     /\n" +
+            System.out.println("Boss 1 Besiegt:\n\\     /\n" +
                     " \\   /\n" +
                     " < 0 >\n");
 
         }
         if (m2) {
-            System.out.println(" \\\\   //\n" +
+            System.out.println("Boss 2 Besiegt:\n \\\\   //\n" +
                     "  \\\\ //\n" +
                     " << 0 >>\n");
         }
         if (m3) {
-            System.out.println(" \\\\   //\n" +
+            System.out.println("Boss 3 Besiegt:\n \\\\   //\n" +
                     "  \\\\  //\n" +
                     "    ##\n" +
                     "  <{@}>\n");
         }
         if (m4) {
-            System.out.println("\\\\       //\n" +
+            System.out.println("Boss 4 Besiegt:\n\\\\       //\n" +
                     "\\\\\\     ///\n" +
                     " \\\\\\   ///\n" +
                     "    ###\n" +
